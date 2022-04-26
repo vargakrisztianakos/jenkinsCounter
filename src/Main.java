@@ -8,13 +8,13 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
         try {
-            File myObj = new File("number.txt");
+            File myObj = new File("number.txt").getAbsoluteFile();
             Scanner myReader = new Scanner(myObj);
             com.sun.security.auth.module.NTSystem NTSystem = new com.sun.security.auth.module.NTSystem();
             String data = myReader.nextLine();
             System.out.println(NTSystem.getName() + ": " + data);
             myReader.close();
-            FileWriter writer = new FileWriter("number.txt", false);
+            FileWriter writer = new FileWriter(myObj, false);
             int number = Integer.parseInt(data);
             number++;
             writer.write(Integer.toString(number));
