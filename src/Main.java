@@ -14,20 +14,14 @@ public class Main {
         try {
             URL myObj = Main.class.getResource("number.txt");
             Scanner myReader = new Scanner(myObj.openStream());
-<<<<<<< HEAD
-            com.sun.security.auth.module.UnixSystem NTSystem = new com.sun.security.auth.module.UnixSystem();
-            String data = myReader.nextLine();
-            System.out.println(NTSystem.getUsername() + ": " + data);
-=======
             String data = myReader.nextLine();
             if (System.getProperty("os.name") == "Linux"){
                 com.sun.security.auth.module.UnixSystem USystem = new com.sun.security.auth.module.UnixSystem();
-                System.out.println(USystem.getUsername() + ":" + data);
+                System.out.println(USystem.getUsername() + ": " + data);
             }else {
                 com.sun.security.auth.module.NTSystem NTSystem = new com.sun.security.auth.module.NTSystem();
                 System.out.println(NTSystem.getName() + ": " + data);
             }
->>>>>>> 2aebde2f5ed55d2108769e9d562f06bb7d4c2d57
             myReader.close();
             FileWriter writer = new FileWriter(myObj.getPath(), false);
             int number = Integer.parseInt(data);
