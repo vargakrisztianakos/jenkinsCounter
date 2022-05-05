@@ -14,9 +14,9 @@ public class Main {
             URL myObj = Main.class.getResource("number.txt");
             System.out.println(myObj);
             Scanner myReader = new Scanner(myObj.openStream());
-            com.sun.security.auth.module.NTSystem NTSystem = new com.sun.security.auth.module.NTSystem();
+            com.sun.security.auth.module.UnixSystem NTSystem = new com.sun.security.auth.module.UnixSystem();
             String data = myReader.nextLine();
-            System.out.println(NTSystem.getName() + ": " + data);
+            System.out.println(NTSystem.getUsername() + ": " + data);
             myReader.close();
             FileWriter writer = new FileWriter(myObj.getPath(), false);
             int number = Integer.parseInt(data);
