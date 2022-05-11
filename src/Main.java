@@ -31,7 +31,7 @@ public class Main {
             Timestamp ts = new Timestamp(System.currentTimeMillis());
             System.out.println(ts);
             FileWriter fw = new FileWriter(obj.getPath(), true);
-            fw.write(ts.toString());
+            fw.write("\n" + ts.toString());
             fw.close();
         } catch (FileNotFoundException e){
             e.printStackTrace();
