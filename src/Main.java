@@ -1,12 +1,10 @@
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.net.InetAddress;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.sql.Timestamp;
 import java.util.Scanner;
 
 public class Main {
@@ -26,6 +24,16 @@ public class Main {
 
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
+            e.printStackTrace();
+        }
+        try{
+            URL obj = Main.class.getResource("timestamps.txt");
+            Timestamp ts = new Timestamp(System.currentTimeMillis());
+            System.out.println(ts);
+            FileWriter fw = new FileWriter(obj.getPath(), true);
+            fw.write(ts.toString());
+            fw.close();
+        } catch (FileNotFoundException e){
             e.printStackTrace();
         }
 
